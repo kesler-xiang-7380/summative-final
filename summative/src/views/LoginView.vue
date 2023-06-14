@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useStore } from '../store';
+import { useStore } from "../store";
 import { auth, firestore } from "../firebase";
 import {
   createUserWithEmailAndPassword,
@@ -50,14 +50,16 @@ const registerViaGoogle = async () => {
   const provider = new GoogleAuthProvider();
   const { user } = await signInWithPopup(auth, provider);
   store.user = user;
-  const { cart = [] } = (await getDoc(doc(firestore, "carts", user.email))).data();
+  const { cart = [] } = (
+    await getDoc(doc(firestore, "carts", user.email))
+  ).data();
   router.push("/purchase");
 };
 </script>
 
 <template>
   <div class="auth-container">
-    <div>
+    <div class="container">
       <h1>Register via Google</h1>
       <button @click="registerViaGoogle()">Google</button>
     </div>
@@ -90,8 +92,18 @@ const registerViaGoogle = async () => {
 
 <style scoped>
 .auth-container {
+  background-image: url(https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   gap: 5rem;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color: antiquewhite;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .setup,
@@ -99,5 +111,8 @@ const registerViaGoogle = async () => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.container {
+  text-align: center;
 }
 </style>

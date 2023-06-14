@@ -1,5 +1,5 @@
 <script setup>
-import axios from 'axios';
+import axios from "axios";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import Modal from "../components/Modal.vue";
@@ -38,7 +38,7 @@ const getTMDBData = async (url, options, page) => {
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <div class="controls">
       <div>
         <input
@@ -50,7 +50,7 @@ const getTMDBData = async (url, options, page) => {
           @click="
             getTMDBData('https://api.themoviedb.org/3/search/movie', {
               query: search,
-            })  
+            })
           "
         >
           Search
@@ -104,7 +104,7 @@ const getTMDBData = async (url, options, page) => {
       >
         Prev
       </button>
-      <p>{{ totalPages > 0 ?`Page ${page} of ${totalPages}`: '' }}</p>
+      <p>{{ totalPages > 0 ? `Page ${page} of ${totalPages}` : "" }}</p>
       <button
         @click="
           getTMDBData(
@@ -150,5 +150,12 @@ img {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+.container {
+  background-image: url(https://t4.ftcdn.net/jpg/02/32/16/07/360_F_232160763_FuTBWDd981tvYEJFXpFZtolm8l4ct0Nz.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 </style>

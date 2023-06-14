@@ -2,7 +2,10 @@
 
 <template>
   <div class="hero-container">
-    <h1>Returning but this time with more ui updates, making the website look clean and nice. Also we can access more than 20 movies.</h1>
+    <h1>
+      Returning but this time with more ui updates, making the website look
+      clean and nice. Also we can access more than 20 movies.
+    </h1>
   </div>
 </template>
 
@@ -14,7 +17,9 @@
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  height: 40vw;
+  height: 50vw;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 h1 {
