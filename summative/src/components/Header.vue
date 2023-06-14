@@ -17,6 +17,7 @@ const router = useRouter();
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
   height: 10vw;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -28,5 +29,6 @@ button {
   width: 150px;
   height: 50px;
   border: 1vw;
+  border-radius: 2vw;
 }
 </style>

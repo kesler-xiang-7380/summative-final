@@ -39,6 +39,7 @@ const getTMDBData = async (url, options, page) => {
 
 <template>
   <div class="container">
+    <h1>Purchase movies</h1>
     <div class="controls">
       <div>
         <input
@@ -53,7 +54,7 @@ const getTMDBData = async (url, options, page) => {
             })
           "
         >
-          Search
+        🔎
         </button>
       </div>
       <div>
@@ -85,9 +86,9 @@ const getTMDBData = async (url, options, page) => {
             })
           "
         >
-          Get
+        🔎
         </button>
-        <button @click="router.push('/cart')">Cart</button>
+        <button class="cart" @click="router.push('/cart')">🛒</button>
       </div>
     </div>
     <div class="pagination">
@@ -145,7 +146,9 @@ img {
   display: flex;
   gap: 1rem;
 }
-
+.cart{
+  width: 3vw;
+}
 .controls {
   display: flex;
   flex-direction: row-reverse;
@@ -156,6 +159,12 @@ img {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  text-align: center;
+  min-height: 100vh;
+  height: 100%;
+  align-items: center;
+  color: gray;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 </style>

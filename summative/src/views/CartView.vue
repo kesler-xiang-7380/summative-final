@@ -1,25 +1,39 @@
 <script setup>
 import { useStore } from "../store/index.js";
 const store = useStore();
-console.log(store.cart);
+
+const removeFromCart = async (index) => {
+  await store.removeFromCart(index);
+};
 </script>
 
 <template>
-  <div id="apple">
-    <div v-for="movie in store.cart">
+  <div class="container">
+    <div class="container-2">
+      <h1>Current purchases:</h1>
+    </div>
+    <div v-for="(movie, index) in store.cart" :key="index">
       <h1>{{ movie.title }}</h1>
       <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster}`" />
+      <button @click="removeFromCart(index)">✖</button>
     </div>
   </div>
 </template>
 
-<style>
-.apple{
-  background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fgrocery-store-checkout&psig=AOvVaw2dkuFeQQNloUjxKtMbahpl&ust=1686780401238000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJDa-eegwf8CFQAAAAAdAAAAABAE);
+<style scoped>
+.container-2{
+  text-align: center;
+}
+.container {
+  background-image: url(https://img.freepik.com/free-vector/film-strip-background-with-clapper-board_1017-33456.jpg);
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 100%;
+  min-height: 100vh;
+  height: 100%;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
+  align-items: center;  
+  color: gray;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 </style>

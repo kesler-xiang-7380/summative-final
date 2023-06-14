@@ -58,7 +58,8 @@ const registerViaGoogle = async () => {
 </script>
 
 <template>
-  <div class="auth-container">
+    <div class="auth-container">
+      <h1>Login to access our website:</h1>
     <div class="container">
       <h1>Register via Google</h1>
       <button @click="registerViaGoogle()">Google</button>
@@ -87,7 +88,7 @@ const registerViaGoogle = async () => {
         <input type="submit" value="Login" />
       </form>
     </div>
-  </div>
+    </div>
 </template>
 
 <style scoped>
@@ -101,6 +102,7 @@ const registerViaGoogle = async () => {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: antiquewhite;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;

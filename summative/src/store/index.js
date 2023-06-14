@@ -7,7 +7,6 @@ export const useStore = defineStore('store', {
   state: () => ({
     user: null,
     cart: [],
-    counter: 0,
   }),
   actions: {
     async addToCart(poster, title) {
@@ -15,7 +14,10 @@ export const useStore = defineStore('store', {
         poster,
         title,
       });
-      this.counter++;
+      await setDoc(doc(firestore, "carts", this.user.email), { cart: this.cart });
+    },
+    async removeFromCart(index){
+      this.cart.splice(index, 1);
       await setDoc(doc(firestore, "carts", this.user.email), { cart: this.cart });
     }
   }

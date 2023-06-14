@@ -21,13 +21,11 @@ const movie = (
   <Teleport to="body">
     <div class="modal-outer-container" @click.self="$emit('toggleModal')">
       <div class="modal-inner-container">
-        <button @click="$emit('toggleModal')">X</button>
         <div v-if="movie">
           <img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" />
-          <button @click="store.addToCart(movie.poster_path, movie.title)">Click Me</button>
+          <button @click="store.addToCart(movie.poster_path, movie.title)">Purchase</button>
           <h1>{{ movie.title }}</h1>
           <h2>{{ movie.release_date }}</h2>
-          <button @click="store.addToCart(movie.poster_path, movie.title)">Click Me</button>
         </div>
       </div>
     </div>
@@ -48,7 +46,7 @@ const movie = (
 }
 
 .modal-outer-container .modal-inner-container {
-  background-color: #3b444b;
+  background-color: lightslategray;
   width: clamp(280px, 100%, 900px);
   height: 50vh;
   position: relative;
@@ -59,8 +57,9 @@ const movie = (
   right: 0px;
   padding: 1rem;
   border: 1rem;
-  border-color: antiquewhite;
-  background: #3b444b;
+  border-radius: 2rem;
+  background: black;
+  color: antiquewhite;
   font-weight: bold;
 }
 
@@ -71,10 +70,5 @@ const movie = (
 
 img {
   width: 200px;
-}
-button{
-  color: antiquewhite;
-  border-radius: 2vw;
-  border: #00000099;
 }
 </style>

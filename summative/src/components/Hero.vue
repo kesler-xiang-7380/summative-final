@@ -4,14 +4,14 @@
   <div class="hero-container">
     <h1>
       Returning but this time with more ui updates, making the website look
-      clean and nice. Also we can access more than 20 movies.
+      clean and nice. Also we can access more than 20 movies. Ad-free content, all day everyday.
     </h1>
   </div>
 </template>
 
 <style scoped>
 .hero-container {
-  background-image: url(https://i.pinimg.com/736x/d8/f0/ea/d8f0ea46f18835f7bb4dd0d8b7c36bd0.jpg);
+  background-image: url(https://cdnb.artstation.com/p/assets/images/images/027/433/191/large/rasel-sky1q.jpg?1591536752);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
