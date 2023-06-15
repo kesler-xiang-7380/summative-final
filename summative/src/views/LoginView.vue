@@ -9,7 +9,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { getDoc, doc } from "@firebase/firestore";
+import { getDoc, doc, setDoc } from "@firebase/firestore";
 
 const store = useStore();
 const router = useRouter();
@@ -47,21 +47,24 @@ const loginViaEmail = async () => {
 };
 
 const registerViaGoogle = async () => {
-  const provider = new GoogleAuthProvider();
-  const { user } = await signInWithPopup(auth, provider);
+  const { user } = await signInWithPopup(auth, new GoogleAuthProvider());
   store.user = user;
-  const { cart = [] } = (
-    await getDoc(doc(firestore, "carts", user.email))
-  ).data();
+  const cartDoc = await getDoc(doc(firestore, "carts", user.email));
+  if (cartDoc.exists()) {
+    store.cart = cartDoc.data().cart;
+  } else {
+    await setDoc(doc(firestore, "carts", user.email), { cart: [] });
+    store.cart = cartDoc.data().cart;
+  }
   router.push("/purchase");
 };
 </script>
 
 <template>
-    <div class="auth-container">
-      <h1>Login to access our website:</h1>
+  <div class="auth-container">
+    <h1>Login to access our website:</h1>
     <div class="container">
-      <h1>Register via Google</h1>
+      <h1>Register/Login via Google</h1>
       <button @click="registerViaGoogle()">Google</button>
     </div>
     <div>
@@ -88,7 +91,7 @@ const registerViaGoogle = async () => {
         <input type="submit" value="Login" />
       </form>
     </div>
-    </div>
+  </div>
 </template>
 
 <style scoped>

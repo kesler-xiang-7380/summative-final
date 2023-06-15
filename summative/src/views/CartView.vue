@@ -21,17 +21,18 @@ const removeFromCart = async (index) => {
 </template>
 
 <style scoped>
-.container-2{
+.container-2 {
   text-align: center;
 }
 .container {
   background-image: url(https://img.freepik.com/free-vector/film-strip-background-with-clapper-board_1017-33456.jpg);
   background-attachment: fixed;
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
   min-height: 100vh;
   height: 100%;
-  background-repeat: no-repeat;
-  align-items: center;  
+  align-items: center;
   color: gray;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
